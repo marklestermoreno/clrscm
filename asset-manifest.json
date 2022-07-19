@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/clrscm/static/css/main.028c6146.css",
-    "main.js": "/clrscm/static/js/main.b748dd1e.js",
+    "main.js": "/clrscm/static/js/main.1715b6cd.js",
     "index.html": "/clrscm/index.html",
     "main.028c6146.css.map": "/clrscm/static/css/main.028c6146.css.map",
-    "main.b748dd1e.js.map": "/clrscm/static/js/main.b748dd1e.js.map"
+    "main.1715b6cd.js.map": "/clrscm/static/js/main.1715b6cd.js.map"
   },
   "entrypoints": [
     "static/css/main.028c6146.css",
-    "static/js/main.b748dd1e.js"
+    "static/js/main.1715b6cd.js"
   ]
 }
