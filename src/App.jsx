@@ -326,7 +326,7 @@ function App() {
         <div className="sample-text">
           <div style={{ display: 'flex', flexDirection: 'column'}}>
             <h1 className='title-text' style={{ color: text, fontSize:'50px'}}> 
-            HELLO WORLD 
+            HELLO WORLD
             </h1>
             <br /> <br />
             <p className='sub-text' style={{ color: text}}> 
