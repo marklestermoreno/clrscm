@@ -1,243 +1,150 @@
-* {
-  box-sizing: border-box;
+/* -------------------------------------------------------------------------------*/
+/* ----------------------------- Start of CSS Reset ------------------------------*/
+/* -------------------------------------------------------------------------------*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  justify-content: space-between;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: "Glegoo", serif;
 }
 
-.App {
-  width: 100%;
-  min-height: 100vh;
-  align-items: center;
-  text-align: center;
-  display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "bg sample-text text"
-    "bg sample-text text"
-    "bg sample-text text";
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
-h1 {
-  font-size: 35px;
-  padding: 10px 10px;
+body {
+  line-height: 1;
 }
 
-.container {
-  background-color: #0c1526;
-  padding: 20px;
-  opacity: 95%;
-  width: 290px;
-  display: flex;
-  ;
-  flex-direction: column;
-  min-height: 100vh;
-
+ol,
+ul {
+  list-style: none;
 }
 
-.container .card {
-  width: 100%;
-  max-width: 100px;
-  margin: 4px 10px;
-  text-align: center;
+blockquote,
+q {
+  quotes: none;
 }
 
-.container .card p {
-  margin-left: 75%;
-  font-weight: 500;
-  cursor: pointer;
-
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
 
-.box {
-  width: 200px;
-  height: 30px;
-  border-radius: 12px;
-  cursor: pointer;
-  padding: 10px;
-  margin: 10px;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.bg {
-  display: flex;
-  width: 100%;
-  grid-area: bg;
+/* -------------------------------------------------------------------------------*/
+/* ------------------------------- End of CSS Reset ------------------------------*/
+/* -------------------------------------------------------------------------------*/
+
+
+.font-regular {
+  font-weight: 400;
+  font-style: normal;
 }
 
-.text {
-  display: flex;
-  width: 100%;
-  top: 500px;
-  grid-area: text;
-  justify-content: end;
-
-}
-
-.sample-text {
-  display: flex;
-  width: 100%;
-  margin: auto;
-  grid-area: sample-text;
-  align-items: flex-start;
-  margin-left: -100px;
-  margin-right: -100px;
-}
-
-.pagination {
-  display: flex;
-  margin-top: 2.5rem;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.sub-text {
-  font-size: 20px;
-  text-align: justify;
-  text-justify: inter-word;
-}
-
-
-@media (min-width: 640px) {
-  .sm {
-    display: none;
-  }
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-
-  .App {
-    display: none;
-  }
-
-  .sm {
-    background-color: #0c1526;
-    color: white;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-size: 100px;
-  }
-
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-
-  .App {
-    display: none;
-  }
-
-  .sm {
-    background-color: #0c1526;
-    color: white;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-size: 100px;
-  }
-
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media (max-width: 991px) and (min-width: 768px) {
-  .App {
-    display: flex;
-  }
-
-  .sm {
-    display: none;
-  }
-
-  .sub-text {
-    font-size: 15px;
-    margin-right: 20px;
-    margin-left: 20px;
-  }
-
-  .container {
-    background-color: #0c1526;
-    padding: 20px;
-    opacity: 95%;
-    width: 190px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-
-  }
-
-  .container .card {
-    width: 100%;
-    max-width: 100px;
-    margin: 2px 5px;
-    text-align: center;
-  }
-
-  .container .card p {
-    margin-left: 38%;
-    font-weight: 400;
-    cursor: pointer;
-  }
-
-  .box {
-    width: 120px;
-    height: 30px;
-    border-radius: 12px;
-    cursor: pointer;
-    padding: 10px;
-    margin: 10px;
-  }
-
-  .pagination {
-    display: flex;
-    margin-top: 2.5rem;
-    margin-bottom: 3rem;
-    width: 50%;
-    padding-left: 50%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .App {
-    display: flex;
-  }
-
-  .sub-text {
-    font-size: 20px;
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .sm {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 1900px) {
-  .App {
-    display: flex;
-  }
-
-  .sub-text {
-    font-size: 28px;
-  }
-
-  .sm {
-    display: none;
-  }
+.font-bold {
+  font-weight: 700;
+  font-style: normal;
 }
