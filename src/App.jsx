@@ -1,17 +1,20 @@
+import React from "react";
 
-import React, { useState } from "react";
-import { HexColorPicker } from "react-colorful";
-import { CopyToClipboard } from 'react-copy-to-clipboard'
-
-import './index.css'
+import "./index.css";
 import CanvasMain from "./components/Canvas/CanvasMain";
-
+import ColorPickerMain from "./components/ColorPicker/ColorPickerMain";
 
 function App() {
-
   return (
     <>
-      <CanvasMain> </CanvasMain>
+      <div className="main-container">
+        <div className="canvas-main-container">
+          <CanvasMain> </CanvasMain>
+        </div>
+        <div className="colorpicker-main-container">
+          <ColorPickerMain></ColorPickerMain>
+        </div>
+      </div>
     </>
   );
 }

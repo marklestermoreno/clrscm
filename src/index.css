@@ -148,3 +148,38 @@ table {
   font-weight: 700;
   font-style: normal;
 }
+
+.main-container {
+  display: flex;
+}
+
+.canvas-main-container, .colorpicker-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.canvas-main-container {
+  width: 80%;;
+}
+
+.colorpicker-main-container {
+  width: 20%;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 991px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .canvas-main-container, .colorpicker-main-container  {
+    width: 100%;;
+  }
+  
+}
+

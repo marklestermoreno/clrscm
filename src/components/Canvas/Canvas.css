@@ -2,24 +2,20 @@
 /* -------------- Main Canvas CSS (Default) ------------ */
 /* ----------------------------------------------------- */
 
-.main-container {
+.canvas-layout-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    min-height: 100vh;
+    margin: 0px 20px;
+    padding: 60px 40px;
+    border-radius: 10px;;
 }
 
 .header-caption {
     font-size: 30px;
     margin-bottom: 20px;
     text-align: center;
-    background: linear-gradient(to right, #4285F4, #EA4335, #34A853);
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
 }
 
 .label-caption {
@@ -27,20 +23,6 @@
     line-height: 30px;
     text-indent: 30px;
     text-align: justify;
-}
-
-.button-menu {
-    padding: 10px 20px;
-    margin: 10px 0px;
-    border-radius: 2px;
-    border: 0px;
-    color: white;
-    transition: 0.3s;
-}
-
-.button-menu:hover {
-    cursor: pointer;
-    background: #CCC !important;
 }
 
 /* ----------------------------------------------------- */
@@ -56,8 +38,8 @@
 /* ----------------------------------------------------- */
 
 /* Add media query for tablet and smaller screens */
-@media (max-width: 768px) {
-    .main-container {
+@media only screen and (max-width: 991px) {
+    .canva-layout-container {
         padding: 10px;
     }
 
@@ -74,9 +56,3 @@
     }
 }
 
-/* Adjust container for smaller screens */
-@media (max-width: 576px) {
-    .main-container {
-        padding: 50px 20px;
-    }
-}
