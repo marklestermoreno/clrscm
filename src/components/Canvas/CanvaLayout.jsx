@@ -1,10 +1,13 @@
 import React from "react";
 import "./Canvas.css";
 
-const CanvasMain = ({ color }) => {
+const CanvasMain = ({ textColor, backgroundColor, isBackground }) => {
   return (
     <>
-      <div className="canvas-layout-container" style={{ background: color }}>
+      <div
+        className="canvas-layout-container"
+        style={{ backgroundColor: backgroundColor, color: textColor }}
+      >
         <h1 className="header-caption font-bold">Welcome to Color Scheme</h1>
 
         <p className="label-caption font-regular">
