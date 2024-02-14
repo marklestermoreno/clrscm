@@ -1,8 +1,8 @@
 import { create } from "zustand";
 
 const useColorStore = create((set) => ({
-  backgroundColor: "#FFF",
-  textColor: "#000",
+  backgroundColor: "#FFFFFF",
+  textColor: "#000000",
 
   setBackgroundColor: (newBackgroundColor) =>
     set({ backgroundColor: newBackgroundColor }),

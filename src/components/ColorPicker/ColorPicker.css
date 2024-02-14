@@ -9,6 +9,12 @@
 
 /* Button Settings */
 
+.info {
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
 .btn-group {
   display: flex;
   justify-content: center;
@@ -67,6 +73,10 @@
 
 /* React Colorful */
 .color-picker .react-colorful {
-  height: 400px !important;
+  height: 300px !important;
   width: 300px;
 }
+
+
+/* -------------------------- Color Desc ----------------------- */
+
