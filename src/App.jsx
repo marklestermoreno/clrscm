@@ -16,7 +16,7 @@ function App() {
           <ColorPickerMain></ColorPickerMain>
         </div>
         <ToastContainer
-          position="bottom-right"
+          position="top-left"
           autoClose={3000}
           limit={5}
           hideProgressBar

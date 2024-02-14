@@ -1,12 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 
+/* CSS and Javascript */
 import "./ColorPicker.css";
+import { hexToRGB } from "../../utils/function/Conversion";
+import { hexToCmyk } from "../../utils/function/Conversion";
 
+/* CComponents */
 import ColorPickerLayout from "./ColorPickerLayout";
 import useColorStore from "../../utils/zustand/colorStore";
 import useOptionsStore from "../../utils/zustand/optionStore";
 import ColorPickerDesc from "./ColorPickerDesc.jsx";
+import ColorFormatMain from "./ColorFormatMain.jsx";
 
 const ColorPickerMain = () => {
   const prevColor = useRef("");
@@ -20,6 +25,15 @@ const ColorPickerMain = () => {
   const setIsBackground = useOptionsStore((state) => state.setIsBackground);
   const isBackground = useOptionsStore((state) => state.isBackground);
 
+  // State for hexToRGB
+  const [textRGB, setTextRGB] = useState("");
+  const [bgRGB, setBgRGB] = useState("");
+
+  // State for hexToCMYK
+  const [textCMYK, setTextCMYK] = useState("");
+  const [bgCMYK, setBgCMYK] = useState("");
+
+  // State for Copy
   const [isCopy, setIsCopy] = useState(false);
 
   // Handle Copy
@@ -35,8 +49,28 @@ const ColorPickerMain = () => {
     }
   };
 
-  // Handle Input
+  // Handle Copy Others
+  const handleCopyOthers = (pColorFormat) => {
+    if (isBackground) {
+      if (pColorFormat === "HEX") {
+        toast("Copied HEX " + backgroundColor.toUpperCase());
+      } else if (pColorFormat === "RGB") {
+        toast("Copied RGB " + bgRGB.toUpperCase());
+      } else if (pColorFormat === "CMYK") {
+        toast("Copied CMYK " + bgCMYK.toUpperCase());
+      }
+    } else {
+      if (pColorFormat === "HEX") {
+        toast("Copied HEX " + textColor.toUpperCase());
+      } else if (pColorFormat === "RGB") {
+        toast("Copied RGB " + textRGB.toUpperCase());
+      } else if (pColorFormat === "CMYK") {
+        toast("Copied CMYK " + textCMYK.toUpperCase());
+      }
+    }
+  };
 
+  // Handle Input
   const handleInputHexChange = (event) => {
     let inputValue = event.target.value;
 
@@ -48,35 +82,29 @@ const ColorPickerMain = () => {
         setTextColor(inputValue);
       }
     }
-    // else if (inputValue.length > 0) {
-    //   console.log(inputValue);
-
-    //   let matchingColors = colorsData.filter(
-    //     (color) =>
-    //       color.name &&
-    //       color.name.toString().toUpperCase() ===
-    //         inputValue.toString().toUpperCase()
-    //   );
-
-    //   console.log(matchingColors);
-    //   const hexValue = matchingColors[0].hex;
-
-    //   if (isBackground) {
-    //     setBackgroundColor(hexValue);
-    //   } else {
-    //     setTextColor(hexValue);
-    //   }
-
-    // }
   };
 
   useEffect(() => {
     setIsCopy(false);
+
+    const { r: textR, g: textG, b: textB } = hexToRGB(textColor);
+    setTextRGB(`rgb(${textR}, ${textG}, ${textB})`);
+
+    const { r: bgR, g: bgG, b: bgB } = hexToRGB(backgroundColor);
+    setBgRGB(`rgb(${bgR}, ${bgG}, ${bgB})`);
+
+    const { c: textC, m: textM, y: textY, k: textK } = hexToCmyk(textColor);
+    setTextCMYK(`cmyk(${textC}%, ${textM}%, ${textY}%, ${textK}%)`);
+
+    const { c: bgC, m: bgM, y: bgCY, k: bgK } = hexToCmyk(backgroundColor);
+    setBgCMYK(`CMYK(${bgC}%, ${bgM}%, ${bgCY}%, ${bgK}%)`);
   }, [textColor, backgroundColor, isBackground]);
 
   return (
     <>
       <div className="colorpicker-layout-container">
+        {/* Color Picker */}
+
         <ColorPickerLayout
           setTextColor={setTextColor}
           textColor={textColor}
@@ -88,11 +116,23 @@ const ColorPickerMain = () => {
           handleInputHexChange={(e) => handleInputHexChange(e)}
           isCopy={isCopy}
         ></ColorPickerLayout>
+
+        {/* Color Description */}
+
         <ColorPickerDesc
           textColor={textColor}
           backgroundColor={backgroundColor}
           isBackground={isBackground}
+          textRGB={textRGB}
+          textCMYK={textCMYK}
+          bgRGB={bgRGB}
+          bgCMYK={bgCMYK}
+          handleCopyOthers={handleCopyOthers}
         ></ColorPickerDesc>
+
+        {/* Color Format */}
+
+        <ColorFormatMain isBackground={isBackground}></ColorFormatMain>
       </div>
     </>
   );

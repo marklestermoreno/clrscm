@@ -43,7 +43,6 @@
   background: #dddddd;
   color: rgb(151, 151, 151);
   border: none;
-
 }
 
 .text-input {
@@ -77,6 +76,97 @@
   width: 300px;
 }
 
-
 /* -------------------------- Color Desc ----------------------- */
 
+.color-information {
+  display: flex;
+  justify-content: column;
+}
+
+.color-conversion {
+  border: 1px solid #a09f9f;
+  margin: 5px 0px;
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+}
+
+.title {
+  width: 90px;
+  color: white;
+  background: #838383;
+  padding: 9px 4px 9px 4px;
+}
+
+.description {
+  text-align: center;
+  padding: 9px 20px;
+}
+
+.description:hover {
+  cursor: pointer;
+}
+
+/* ------------------------ Color Format ----------------------- */
+
+.main-format {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.format-header {
+  font-size: 14px;
+  font-weight: 800 !important;
+  margin-bottom: 8px;
+}
+
+select {
+  padding: 5px 10px;
+}
+
+/* --------------------- Color Format Sub ----------------- */
+
+.sub-format .format-header {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.sub-format .color-format {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sub-format .color-format .title {
+  width: 50px !important;
+  text-align: center;
+  border: 1px solid #a09f9f;
+}
+
+.sub-format .color-format .description {
+  width: 60px !important;
+  text-align: center;
+  border: 1px solid #a09f9f;
+  height: 15px;
+}
+
+.sub-format .color-format .description:hover {
+  cursor: default;
+}
+
+.red {
+  background: red;
+  color: white;
+}
+
+.green {
+  background: green;
+  color: white;
+}
+
+.blue {
+  background: blue;
+  color: white;
+}
