@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { rgbToHex, hexToRGB } from "../../../utils/function/Conversion";
 
-const RGB = ({ isBackground }) => {
+const RGB = ({
+  isBackground,
+  setTextColor,
+  setBackgroundColor,
+  backgroundColor,
+  textColor,
+}) => {
   // Text
-  const [sliderRedText, setSliderRedText] = useState(50);
-  const [sliderGreenText, setSliderGreenText] = useState(50);
-  const [sliderBlueText, setSliderBlueText] = useState(50);
+  const [sliderRedText, setSliderRedText] = useState(
+    () => hexToRGB(textColor).r
+  );
+  const [sliderGreenText, setSliderGreenText] = useState(
+    () => hexToRGB(textColor).g
+  );
+  const [sliderBlueText, setSliderBlueText] = useState(
+    () => hexToRGB(textColor).b
+  );
 
   const handleSliderRedText = (event) => {
     setSliderRedText(event.target.value);
@@ -19,9 +32,15 @@ const RGB = ({ isBackground }) => {
   };
 
   // Background
-  const [sliderRedBG, setSliderRedBG] = useState(50);
-  const [sliderGreenBG, setSliderGreenBG] = useState(50);
-  const [sliderBlueBG, setSliderBlueBG] = useState(50);
+  const [sliderRedBG, setSliderRedBG] = useState(
+    () => hexToRGB(backgroundColor).r
+  );
+  const [sliderGreenBG, setSliderGreenBG] = useState(
+    () => hexToRGB(backgroundColor).g
+  );
+  const [sliderBlueBG, setSliderBlueBG] = useState(
+    () => hexToRGB(backgroundColor).b
+  );
 
   const handleSliderRedBG = (event) => {
     setSliderRedBG(event.target.value);
@@ -35,6 +54,24 @@ const RGB = ({ isBackground }) => {
     setSliderBlueBG(event.target.value);
   };
 
+  useEffect(() => {
+    if (isBackground) {
+      setBackgroundColor(rgbToHex(sliderRedBG, sliderGreenBG, sliderBlueBG));
+    } else {
+      setTextColor(rgbToHex(sliderRedText, sliderGreenText, sliderBlueText));
+    }
+  }, [
+    sliderRedBG,
+    sliderGreenBG,
+    sliderBlueBG,
+    sliderRedText,
+    sliderGreenText,
+    sliderBlueText,
+    isBackground,
+    setBackgroundColor,
+    setTextColor,
+  ]);
+
   return (
     <>
       <div className="sub-format">
@@ -44,15 +81,15 @@ const RGB = ({ isBackground }) => {
 
           <span className="description">
             {" "}
-            {isBackground ? sliderRedText : sliderRedBG}{" "}
+            {isBackground ? sliderRedBG : sliderRedText}{" "}
           </span>
           <span className="color-adjuster">
             <input
               type="range"
               min="0"
               max="255"
-              value={isBackground ? sliderRedText : sliderRedBG}
-              onChange={isBackground ? handleSliderRedText : handleSliderRedBG}
+              value={isBackground ? sliderRedBG : sliderRedText}
+              onChange={isBackground ? handleSliderRedBG : handleSliderRedText}
             />
           </span>
         </div>
@@ -62,16 +99,16 @@ const RGB = ({ isBackground }) => {
 
           <span className="description">
             {" "}
-            {isBackground ? sliderGreenText : sliderGreenBG}{" "}
+            {isBackground ? sliderGreenBG : sliderGreenText}{" "}
           </span>
           <span className="color-adjuster">
             <input
               type="range"
               min="0"
               max="255"
-              value={isBackground ? sliderGreenText : sliderGreenBG}
+              value={isBackground ? sliderGreenBG : sliderGreenText}
               onChange={
-                isBackground ? handleSliderGreenText : handleSliderGreenBG
+                isBackground ? handleSliderGreenBG : handleSliderGreenText
               }
             />
           </span>
@@ -82,16 +119,16 @@ const RGB = ({ isBackground }) => {
 
           <span className="description">
             {" "}
-            {isBackground ? sliderBlueText : sliderBlueBG}{" "}
+            {isBackground ? sliderBlueBG : sliderBlueText}{" "}
           </span>
           <span className="color-adjuster">
             <input
               type="range"
               min="0"
               max="255"
-              value={isBackground ? sliderBlueText : sliderBlueBG}
+              value={isBackground ? sliderBlueBG : sliderBlueText}
               onChange={
-                isBackground ? handleSliderBlueText : handleSliderBlueBG
+                isBackground ? handleSliderBlueBG : handleSliderBlueText
               }
             />
           </span>

@@ -55,17 +55,17 @@ const ColorPickerMain = () => {
       if (pColorFormat === "HEX") {
         toast("Copied HEX " + backgroundColor.toUpperCase());
       } else if (pColorFormat === "RGB") {
-        toast("Copied RGB " + bgRGB.toUpperCase());
+        toast("Copied " + bgRGB.toUpperCase());
       } else if (pColorFormat === "CMYK") {
-        toast("Copied CMYK " + bgCMYK.toUpperCase());
+        toast("Copied " + bgCMYK.toUpperCase());
       }
     } else {
       if (pColorFormat === "HEX") {
         toast("Copied HEX " + textColor.toUpperCase());
       } else if (pColorFormat === "RGB") {
-        toast("Copied RGB " + textRGB.toUpperCase());
+        toast("Copied " + textRGB.toUpperCase());
       } else if (pColorFormat === "CMYK") {
-        toast("Copied CMYK " + textCMYK.toUpperCase());
+        toast("Copied " + textCMYK.toUpperCase());
       }
     }
   };
@@ -73,6 +73,8 @@ const ColorPickerMain = () => {
   // Handle Input
   const handleInputHexChange = (event) => {
     let inputValue = event.target.value;
+
+    console.log(inputValue);
 
     if (inputValue.startsWith("#")) {
       console.log(inputValue);
@@ -104,7 +106,6 @@ const ColorPickerMain = () => {
     <>
       <div className="colorpicker-layout-container">
         {/* Color Picker */}
-
         <ColorPickerLayout
           setTextColor={setTextColor}
           textColor={textColor}
@@ -116,9 +117,7 @@ const ColorPickerMain = () => {
           handleInputHexChange={(e) => handleInputHexChange(e)}
           isCopy={isCopy}
         ></ColorPickerLayout>
-
         {/* Color Description */}
-
         <ColorPickerDesc
           textColor={textColor}
           backgroundColor={backgroundColor}
@@ -132,7 +131,13 @@ const ColorPickerMain = () => {
 
         {/* Color Format */}
 
-        <ColorFormatMain isBackground={isBackground}></ColorFormatMain>
+        <ColorFormatMain
+          setTextColor={setTextColor}
+          textColor={textColor}
+          backgroundColor={backgroundColor}
+          setBackgroundColor={setBackgroundColor}
+          isBackground={isBackground}
+        ></ColorFormatMain>
       </div>
     </>
   );
