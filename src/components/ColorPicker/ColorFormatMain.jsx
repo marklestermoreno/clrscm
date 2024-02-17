@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import RGB from "./ColorFormat/RGB";
-import HSL from "./ColorFormat/HSL";
+// import HSL from "./ColorFormat/HSL";
 
 const ColorFormatMain = ({
   setTextColor,
@@ -37,9 +37,7 @@ const ColorFormatMain = ({
         </select>
 
         <RGB
-          setTextColor={setTextColor}
           textColor={textColor}
-          setBackgroundColor={setBackgroundColor}
           backgroundColor={backgroundColor}
           isBackground={isBackground}
         ></RGB>

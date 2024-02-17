@@ -3,8 +3,8 @@ import { toast } from "react-toastify";
 
 /* CSS and Javascript */
 import "./ColorPicker.css";
-import { hexToRGB } from "../../utils/function/Conversion";
-import { hexToCmyk } from "../../utils/function/Conversion";
+import { hexToRGB, hexToCmyk } from "../../utils/function/HexConversion.js";
+
 
 /* CComponents */
 import ColorPickerLayout from "./ColorPickerLayout";
@@ -70,6 +70,9 @@ const ColorPickerMain = () => {
     }
   };
 
+
+  /* -------------- End RGB Function ----------- */
+
   // Handle Input
   const handleInputHexChange = (event) => {
     let inputValue = event.target.value;
@@ -89,6 +92,8 @@ const ColorPickerMain = () => {
   useEffect(() => {
     setIsCopy(false);
 
+    /* ------------------- Color Description ---------------------- */
+
     const { r: textR, g: textG, b: textB } = hexToRGB(textColor);
     setTextRGB(`rgb(${textR}, ${textG}, ${textB})`);
 
@@ -100,12 +105,17 @@ const ColorPickerMain = () => {
 
     const { c: bgC, m: bgM, y: bgCY, k: bgK } = hexToCmyk(backgroundColor);
     setBgCMYK(`CMYK(${bgC}%, ${bgM}%, ${bgCY}%, ${bgK}%)`);
+
+     /* -------------------- Color Format ---------------------- */
+
+
   }, [textColor, backgroundColor, isBackground]);
 
   return (
     <>
       <div className="colorpicker-layout-container">
         {/* Color Picker */}
+
         <ColorPickerLayout
           setTextColor={setTextColor}
           textColor={textColor}
@@ -117,7 +127,9 @@ const ColorPickerMain = () => {
           handleInputHexChange={(e) => handleInputHexChange(e)}
           isCopy={isCopy}
         ></ColorPickerLayout>
+
         {/* Color Description */}
+
         <ColorPickerDesc
           textColor={textColor}
           backgroundColor={backgroundColor}
