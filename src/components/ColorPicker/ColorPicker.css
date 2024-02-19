@@ -72,8 +72,8 @@
 
 /* React Colorful */
 .color-picker .react-colorful {
-  height: 300px !important;
-  width: 300px;
+  height: 550px !important;
+  width: 320px;
 }
 
 /* -------------------------- Color Desc ----------------------- */
@@ -156,17 +156,17 @@ select {
   cursor: default;
 }
 
-.red {
+.Red {
   background: red;
   color: white;
 }
 
-.green {
+.Green {
   background: green;
   color: white;
 }
 
-.blue {
+.Blue {
   background: blue;
   color: white;
 }

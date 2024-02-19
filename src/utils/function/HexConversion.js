@@ -28,9 +28,9 @@ export function hexToCmyk(hex) {
   const k = 1 - Math.max(r, g, b);
 
   // Calculate C, M, Y
-  const c = (1 - r - k) / (1 - k);
-  const m = (1 - g - k) / (1 - k);
-  const y = (1 - b - k) / (1 - k);
+  const c = k === 1 ? 0 : (1 - r - k) / (1 - k);
+  const m = k === 1 ? 0 : (1 - g - k) / (1 - k);
+  const y = k === 1 ? 0 : (1 - b - k) / (1 - k);
 
   return {
     c: Math.round(c * 100),

@@ -5,13 +5,11 @@ import { toast } from "react-toastify";
 import "./ColorPicker.css";
 import { hexToRGB, hexToCmyk } from "../../utils/function/HexConversion.js";
 
-
 /* CComponents */
 import ColorPickerLayout from "./ColorPickerLayout";
 import useColorStore from "../../utils/zustand/colorStore";
 import useOptionsStore from "../../utils/zustand/optionStore";
 import ColorPickerDesc from "./ColorPickerDesc.jsx";
-import ColorFormatMain from "./ColorFormatMain.jsx";
 
 const ColorPickerMain = () => {
   const prevColor = useRef("");
@@ -140,16 +138,6 @@ const ColorPickerMain = () => {
           bgCMYK={bgCMYK}
           handleCopyOthers={handleCopyOthers}
         ></ColorPickerDesc>
-
-        {/* Color Format */}
-
-        <ColorFormatMain
-          setTextColor={setTextColor}
-          textColor={textColor}
-          backgroundColor={backgroundColor}
-          setBackgroundColor={setBackgroundColor}
-          isBackground={isBackground}
-        ></ColorFormatMain>
       </div>
     </>
   );
