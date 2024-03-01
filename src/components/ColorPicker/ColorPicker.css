@@ -170,3 +170,20 @@ select {
   background: blue;
   color: white;
 }
+
+@media (min-width: 992px) and (max-width: 1999px) {
+ 
+}
+
+@media only screen and (max-width: 991px) {
+  .colorpicker-layout-container {
+    display: flex;
+    border-left: none;
+  }
+
+  /* React Colorful */
+  .color-picker .react-colorful {
+    height: 550px !important;
+    width: 350px;
+  }
+}
