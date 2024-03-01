@@ -7,8 +7,10 @@ const ColorPickerDesc = ({
   backgroundColor,
   bgRGB,
   bgCMYK,
+  bgHSL,
   textRGB,
   textCMYK,
+  textHSL,
   handleCopyOthers,
 }) => {
   return (
@@ -49,6 +51,19 @@ const ColorPickerDesc = ({
             <span className="color-conversion description">
               {" "}
               {isBackground ? bgCMYK : textCMYK}{" "}
+            </span>
+          </CopyToClipboard>
+        </div>
+
+        <div className="color-information">
+          <span className="color-conversion title">HSL</span>
+          <CopyToClipboard
+            text={isBackground ? bgHSL : textHSL}
+            onCopy={() => handleCopyOthers("HSL")}
+          >
+            <span className="color-conversion description">
+              {" "}
+              {isBackground ? bgHSL : textHSL}{" "}
             </span>
           </CopyToClipboard>
         </div>

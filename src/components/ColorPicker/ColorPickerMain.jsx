@@ -3,7 +3,11 @@ import { toast } from "react-toastify";
 
 /* CSS and Javascript */
 import "./ColorPicker.css";
-import { hexToRGB, hexToCmyk } from "../../utils/function/HexConversion.js";
+import {
+  hexToRGB,
+  hexToCmyk,
+  hexToHSL,
+} from "../../utils/function/HexConversion.js";
 
 /* CComponents */
 import ColorPickerLayout from "./ColorPickerLayout";
@@ -31,6 +35,10 @@ const ColorPickerMain = () => {
   const [textCMYK, setTextCMYK] = useState("");
   const [bgCMYK, setBgCMYK] = useState("");
 
+  // State for hexToHSL
+  const [textHSL, setTextHSL] = useState("");
+  const [bgHSL, setBgHSL] = useState("");
+
   // State for Copy
   const [isCopy, setIsCopy] = useState(false);
 
@@ -56,6 +64,8 @@ const ColorPickerMain = () => {
         toast("Copied " + bgRGB.toUpperCase());
       } else if (pColorFormat === "CMYK") {
         toast("Copied " + bgCMYK.toUpperCase());
+      } else if (pColorFormat === "HSL") {
+        toast("Copied " + bgHSL.toUpperCase());
       }
     } else {
       if (pColorFormat === "HEX") {
@@ -64,10 +74,11 @@ const ColorPickerMain = () => {
         toast("Copied " + textRGB.toUpperCase());
       } else if (pColorFormat === "CMYK") {
         toast("Copied " + textCMYK.toUpperCase());
+      } else if (pColorFormat === "HSL") {
+        toast("Copied " + textHSL.toUpperCase());
       }
     }
   };
-
 
   /* -------------- End RGB Function ----------- */
 
@@ -101,12 +112,16 @@ const ColorPickerMain = () => {
     const { c: textC, m: textM, y: textY, k: textK } = hexToCmyk(textColor);
     setTextCMYK(`cmyk(${textC}%, ${textM}%, ${textY}%, ${textK}%)`);
 
-    const { c: bgC, m: bgM, y: bgCY, k: bgK } = hexToCmyk(backgroundColor);
-    setBgCMYK(`CMYK(${bgC}%, ${bgM}%, ${bgCY}%, ${bgK}%)`);
+    const { c: bgC, m: bgM, y: bgY, k: bgK } = hexToCmyk(backgroundColor);
+    setBgCMYK(`cmyk(${bgC}%, ${bgM}%, ${bgY}%, ${bgK}%)`);
 
-     /* -------------------- Color Format ---------------------- */
+    const { h: textH, s: textS, l: textHSL } = hexToHSL(textColor);
+    setTextHSL(`hsl(${textH}%, ${textS}%, ${textHSL}%)`);
 
+    const { h: bgH, s: bgS, l: bgL } = hexToHSL(backgroundColor);
+    setBgHSL(`hsl(${bgH}%, ${bgS}%, ${bgL}%)`);
 
+    /* -------------------- Color Format ---------------------- */
   }, [textColor, backgroundColor, isBackground]);
 
   return (
@@ -134,8 +149,10 @@ const ColorPickerMain = () => {
           isBackground={isBackground}
           textRGB={textRGB}
           textCMYK={textCMYK}
+          textHSL={textHSL}
           bgRGB={bgRGB}
           bgCMYK={bgCMYK}
+          bgHSL={bgHSL}
           handleCopyOthers={handleCopyOthers}
         ></ColorPickerDesc>
       </div>

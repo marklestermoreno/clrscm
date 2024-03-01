@@ -3,26 +3,26 @@
 /* ----------------------------------------------------- */
 
 .canvas-layout-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 20px;
-    padding: 60px 40px;
-    border-radius: 10px;;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 20px;
+  padding: 60px 40px;
+  border-radius: 10px;
 }
 
 .header-caption {
-    font-size: 30px;
-    margin-bottom: 20px;
-    text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .label-caption {
-    margin: 10px;
-    line-height: 30px;
-    text-indent: 30px;
-    text-align: justify;
+  margin: 10px;
+  line-height: 30px;
+  text-indent: 30px;
+  text-align: justify;
 }
 
 /* ----------------------------------------------------- */
@@ -30,7 +30,7 @@
 /* ----------------------------------------------------- */
 
 .modal-container {
-    display: flex;
+  display: flex;
 }
 
 /* ----------------------------------------------------- */
@@ -39,26 +39,35 @@
 
 /* Add media query for tablet and smaller screens */
 @media only screen and (max-width: 1399px) {
-    .canva-layout-container {
-        padding: 10px;
-    }
+  .canva-layout-container {
+    padding: 10px;
+  }
 
-    .header-caption {
-        font-size: 24px;
-    }
+  .header-caption {
+    font-size: 24px;
+  }
 
-    .label-caption {
-        text-indent: 15px;
-    }
+  .label-caption {
+    text-indent: 15px;
+  }
 
-    .large-screen-content {
-        display: none;
-    }
+  .large-screen-content {
+    display: none;
+  }
 }
 
 /* Add media query for tablet and smaller screens */
-@media (min-width: 1399px) {
-    .canvas-layout-container {
-        height: 100%;
-    }
+@media (min-width: 2100px) {
+  .canvas-layout-container {
+    height: 100%;
+  }
+
+  .header-caption {
+    font-size: 60px;
+  }
+
+  .label-caption {
+    font-size: 25px;
+    line-height: 50px;
+  }
 }
